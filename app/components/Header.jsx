@@ -12,7 +12,7 @@ export default function Header() {
         {/* Logo + Tagline */}
         <div className="flex items-center gap-3 bg-orange-500">
          <Link href="/" className="flex items-center gap-3 bg-orange-500">
-           <img src="https://lzd-img-global.slatic.net/us/domino/3b870cb043c7f8a9741cbf66329e294e.png" alt="Daraz Logo" className="h-8" />
+           <img src="/images/daraz.jpg" alt="Daraz Logo" className="h-8" />
          </Link>
         </div>
         <div className="flex items-center gap-3">
