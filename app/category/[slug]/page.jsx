@@ -2,8 +2,8 @@ import products from "@/app/data/products.json";
 import categories from "@/app/data/categories.json";
 import ProductCard from "@/app/components/ProductCard"; // ✅ make sure the path is correct
 
-export default function CategoryPage({ params }) {
-  const { slug } = params; // correct way to get slug
+export default async function CategoryPage({ params }) {
+  const { slug } = await params; // correct way to get slug
 
   const category = categories.find(c => c.slug === slug);
   const categoryProducts = products.filter(p => p.slugCategory === slug);

@@ -9,8 +9,8 @@ import products from "@/app/data/products.json";
 
 export default function Home() {
   return (
-    <div>
-      <HeroCarousel />
+    <div className="bg-gray-100">
+      <HeroCarousel /> 
       <Categories />
       <FlashSale items={products.slice(0, 6)} />
       <ProductTrending items={products.slice(6, 12)} />

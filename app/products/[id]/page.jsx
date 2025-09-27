@@ -1,4 +1,5 @@
 "use client";
+import * as React from "react";
 import products from "@/app/data/products.json";
 import { useRouter } from "next/navigation";
 import { useCart } from "@/app/Context/CartContext";
@@ -6,8 +7,8 @@ import { useCart } from "@/app/Context/CartContext";
 export default function ProductDetail({ params }) {
   const router = useRouter();
   const { addToCart } = useCart();
-
-  const id = params.id;
+ const { id } = React.use(params); // ✅ unwrap the promise
+  
   const product = products.find((p) => String(p.id) === String(id));
 
   if (!product) {

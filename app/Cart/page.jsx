@@ -86,7 +86,7 @@ export default function CartPage() {
 
           {/* Cart Summary */}
           <div className="mt-4 text-lg font-bold">
-            Total: ${cartTotal.toFixed(2)}
+            Total: Rs.{cartTotal.toFixed(2)}
           </div>
 
           {/* Actions */}

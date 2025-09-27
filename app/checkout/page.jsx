@@ -64,12 +64,12 @@ export default function CheckoutPage() {
                   <div>
                     <p className="font-medium">{item.title}</p>
                     <p className="text-sm text-gray-500">
-                      ${item.price} × {item.quantity || 1}
+                      Rs.{item.price} × {item.quantity || 1}
                     </p>
                   </div>
                   <div className="flex items-center gap-3">
                     <span className="font-semibold">
-                      ${(item.price * (item.quantity || 1)).toFixed(2)}
+                      Rs.{(item.price * (item.quantity || 1)).toFixed(2)}
                     </span>
                     <button
                       onClick={() => removeFromCart(item.id)}
@@ -82,7 +82,7 @@ export default function CheckoutPage() {
               ))}
             </ul>
             <div className="mt-4 text-right font-bold text-lg">
-              Total: ${total.toFixed(2)}
+              Total: Rs.{total.toFixed(2)}
             </div>
           </div>
 
