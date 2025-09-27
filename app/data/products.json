@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "title": "Bambu Lab X1-Carbon Combo Global Version 3D Printer",
+    "price": 900000,
+    "oldPrice": 1242000,
+    "discount": "38%",
+    "category": "3D Printers",
+    "slugCategory": "3d-printers",
+    "image": "https://img.drz.lazcdn.com/static/pk/p/b30510f9721d8f28a8cd62ed550cb662.png_720x720q80.png_.webp"
+  },
+  {
+    "id": 2,
+    "title": "DIY 3D Printer Un-Assembled Complete Kit (Processing Time 4 Days)",
+    "price": 125000,
+    "oldPrice": 200000,
+    "discount": "38%",
+    "category": "3D Printers",
+    "slugCategory": "3d-printers",
+    "image": "https://img.drz.lazcdn.com/static/pk/p/7d96a136a24aeddd0fd9f22d6dc25c5b.jpg_200x200q75.avif"
+  },
+  {
+    "id": 3,
+    "title": "Pizza Cutter Stainless Steel Blade Rubber Handle Big Blade Household Kitchen Accessories Pizza Cutter Wheels",
+    "price": 198,
+    "oldPrice": 490,
+    "discount": "60%",
+    "category": "Pasta, Noodle & Pizza Tools",
+    "slugCategory": "pasta-noodle-and-pizza-tools",
+    "image": "https://img.drz.lazcdn.com/static/pk/p/368d2b230f4c6b843d4957477974e6ba.jpg_720x720q80.jpg_.webp"
+  },
+  {
+    "id": 4,
+    "title": "Smooth Stainless Steel Rolling Pin Pastry and Pizza Double Dough Baker Roller Metal Kitchen Utensils Ideal for Baking Dough, Pizza, Pie, Pastries, Pasta and Cookies",
+    "price": 551,
+    "oldPrice": 619,
+    "discount": "10%",
+    "category": "Pasta, Noodle & Pizza Tools",
+    "slugCategory": "pasta-noodle-and-pizza-tools",
+    "image": "https://img.drz.lazcdn.com/static/pk/p/b761960fd29a62d8e869ea8b2d2ab391.jpg_720x720q80.jpg_.webp"
+  },
+  {
+    "id": 5,
+    "title": "Pizza Docker Roller, Plastic Pizza Roller with Spikes, Dough Docker for Pizza Crust or Pastry Dough Kitchen Baking Tool",
+    "price": 499,
+    "oldPrice": 899,
+    "discount": "37%",
+    "category": "Pasta, Noodle & Pizza Tools",
+    "slugCategory": "pasta-noodle-and-pizza-tools",
+    "image": "https://img.drz.lazcdn.com/static/pk/p/d2fbbfe5bf62775a20fc02ec00dca8f0.jpg_720x720q80.jpg_.webp"
+  },
+  {
+    "id": 6,
+    "title": "Stainless Steel Spaghetti Noodles Tongs/ Cake Muffin Clip Tong/ Salad Tong /Bread Tong Kitchen Utensils Pasta Tools",
+    "price": 430,
+    "oldPrice": 550,
+    "discount": "22%",
+    "category": "Pasta, Noodle & Pizza Tools",
+    "slugCategory": "pasta-noodle-and-pizza-tools",
+    "image": "https://img.drz.lazcdn.com/static/pk/p/df7eae036a5aefa6d82d44c3e346fae0.jpg_720x720q80.jpg_.webp"
+  },
+  {
+    "id": 7,
+    "title": "AF Sim Card, Tray Eject Pin Tool Sim Adapter (Steel) Pack of 2 - Sim Ejection Pin for Mobiles",
+    "price": 100,
+    "oldPrice": 110,
+    "discount": "9%",
+    "category": "SIM Tools",
+    "slugCategory": "sim-tools",
+    "image": "https://img.drz.lazcdn.com/static/pk/p/a30ef52a74f0c96b24530e6ca6a26978.jpg_720x720q80.jpg_.webp"
+  },
+  {
+    "id": 8,
+    "title": "Redmi Mi Note 8 Dual SIM Tray Sim Jacket Sim Slot Sim Door For Redmi Mi Note 8 _ Blue",
+    "price": 275,
+    "oldPrice": 595,
+    "discount": "40%",
+    "category": "SIM Tools",
+    "slugCategory": "sim-tools",
+    "image": "https://img.drz.lazcdn.com/static/pk/p/f2a26cee636d3342842d7e1141e1d877.jpg_720x720q80.jpg_.webp"
+  },
+  {
+    "id": 9,
+    "title": "Huawei P8 Lite SIM Tray Replacement Sim Card & SD Card Holder Secure Your Connection with A+ Quality Sim Door For Huawei P8 Lite Gold",
+    "price": 305,
+    "oldPrice": 407,
+    "discount": "25%",
+    "category": "SIM Tools",
+    "slugCategory": "sim-tools",
+    "image": "https://img.drz.lazcdn.com/static/pk/p/7a1633882fae9808c79b412e9f5f0a37.jpg_720x720q80.jpg_.webp"
+  },
+  {
+    "id": 10,
+    "title": "Men’s Casual Sneakers",
+    "price": 2999,
+    "oldPrice": 4999,
+    "discount": "40%",
+    "category": "Fashion",
+    "slugCategory": "fashion",
+    "image": "/images/flash/sneakers.jpg"
+  }
+]

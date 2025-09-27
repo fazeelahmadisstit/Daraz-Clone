@@ -1,0 +1,17 @@
+[
+  { "id": 1, "name": "3D Printers", "slug": "3d-printers", "icon": "/images/3D-Printers.jpg" },
+  { "id": 2, "name": "Face Mask & Packs", "slug": "face-mask-and-packs", "icon": "/images/Face-Mask-&-Packs.jpg" },
+  { "id": 3, "name": "Pasta, Noodle & Pizza Tools", "slug": "pasta-noodle-and-pizza-tools", "icon": "/images/Pasta-Noodle-Pizza-Tools.jpg" },
+  { "id": 4, "name": "SIM Tools", "slug": "sim-tools", "icon": "/images/SIM-Tools.jpg" },
+  { "id": 5, "name": "Screen Protectors", "slug": "screen-protectors", "icon": "/images/Screen-Protectors.jpg" },
+  { "id": 6, "name": "Casserole Pots", "slug": "casserole-pots", "icon": "/images/Casserole-Pots.jpg" },
+  { "id": 7, "name": "Hoodies & Sweatshirts", "slug": "hoodies-and-sweatshirts", "icon": "/images/Hoodies-&-Sweatshirts.jpg" },
+  { "id": 8, "name": "Toy Boxes & Organisers", "slug": "toy-boxes-and-organisers", "icon": "/images/Toy-Boxes-&-Organisers.jpg" },
+  { "id": 9 ,"name": "Dining Sets", "slug": "dining-sets", "icon": "/images/Dining-Sets.jpg" },
+  { "id": 10, "name": "Microphones", "slug": "microphones", "icon": "/images/Microphones.jpg" },
+  { "id": 11, "name": "Headbands", "slug": "headbands", "icon": "/images/Headbands.jpg" },
+  { "id": 12, "name": "Christening", "slug": "christening", "icon": "/images/Christening.jpg" },
+  { "id": 13, "name": "Leashes & Harnesses", "slug": "leashes-and-harnesses", "icon": "/images/Leashes-&-Harnesses.jpg" },
+  { "id": 14, "name": "Donate to Educate", "slug": "donate-to-educate", "icon": "/images/Donate-to-Educate.jpg" }
+]
+
