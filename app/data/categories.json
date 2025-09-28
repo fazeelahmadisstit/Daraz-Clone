@@ -1,5 +1,5 @@
 [
-  { "id": 1, "name": "3D Printers", "slug": "3d-printers", "icon": "/images/3D-Printers.jpg" },
+  { "id": 1, "name": "3D Printers", "slug": "3d-printers", "icon": "/images/3d-Printers.jpg" },
   { "id": 2, "name": "Face Mask & Packs", "slug": "face-mask-and-packs", "icon": "/images/Face-Mask-&-Packs.jpg" },
   { "id": 3, "name": "Pasta, Noodle & Pizza Tools", "slug": "pasta-noodle-and-pizza-tools", "icon": "/images/Pasta-Noodle-Pizza-Tools.jpg" },
   { "id": 4, "name": "SIM Tools", "slug": "sim-tools", "icon": "/images/SIM-Tools.jpg" },
