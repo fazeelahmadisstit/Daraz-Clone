@@ -1,15 +1,16 @@
 "use client";
 import { useSearchParams } from "next/navigation";
 import products from "@/app/data/products.json";
+import ProductCard from "@/app/components/ProductCard"; // ✅ correct path
 
 export default function SearchPage() {
   const searchParams = useSearchParams();
   const query = searchParams.get("query")?.toLowerCase() || "";
 
-  const filteredProducts = products.filter((product) => {
-    if (!product || !product.name) return false; // ✅ skip if no name
-    return product.name.toLowerCase().includes(query);
-  });
+  // ✅ Use "title" instead of "name"
+  const filteredProducts = products.filter((product) =>
+    product?.title?.toLowerCase().includes(query)
+  );
 
   if (!query) {
     return <h1 className="p-10 text-center">Please enter a search term.</h1>;
