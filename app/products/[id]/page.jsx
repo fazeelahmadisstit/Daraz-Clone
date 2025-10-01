@@ -19,7 +19,7 @@ export default function ProductDetail({ params }) {
   }
 
   const handleAddToCart = (item) => {
-    addToCart({ ...item, selectedColor }); // ✅ store chosen color in cart
+    addToCart({ ...item, selectedColor });
     router.push("/Cart");
   };
 
@@ -30,8 +30,90 @@ export default function ProductDetail({ params }) {
     ? product.colors.split(",").map((c) => c.trim())
     : [];
 
-  // ✅ state for selected color
   const [selectedColor, setSelectedColor] = React.useState(colors[0] || null);
+
+  // ⭐ Function to render stars
+  const renderStars = (rating) => {
+    const fullStars = Math.floor(rating);
+    const halfStar = rating % 1 >= 0.5;
+    const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+
+    return (
+      <div className="flex items-center">
+        {[...Array(fullStars)].map((_, i) => (
+          <svg
+            key={`full-${i}`}
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="gold"
+            className="w-4 h-4"
+          >
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.18 3.64a1 
+            1 0 00.95.69h3.831c.969 0 1.371 
+            1.24.588 1.81l-3.102 2.253a1 1 
+            0 00-.364 1.118l1.18 3.64c.3.922-.755 
+            1.688-1.54 1.118l-3.102-2.253a1 
+            1 0 00-1.176 0l-3.102 
+            2.253c-.784.57-1.838-.196-1.539-1.118l1.18-3.64a1 
+            1 0 00-.364-1.118L2.5 
+            9.067c-.783-.57-.38-1.81.588-1.81h3.83a1 
+            1 0 00.951-.69l1.18-3.64z" />
+          </svg>
+        ))}
+
+        {halfStar && (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            className="w-4 h-4"
+          >
+            <defs>
+              <linearGradient id="half">
+                <stop offset="50%" stopColor="gold" />
+                <stop offset="50%" stopColor="lightgray" />
+              </linearGradient>
+            </defs>
+            <path
+              fill="url(#half)"
+              d="M9.049 2.927c.3-.921 1.603-.921 1.902 
+              0l1.18 3.64a1 1 0 00.95.69h3.831c.969 
+              0 1.371 1.24.588 1.81l-3.102 
+              2.253a1 1 0 00-.364 1.118l1.18 
+              3.64c.3.922-.755 1.688-1.54 
+              1.118l-3.102-2.253a1 1 0 
+              00-1.176 0l-3.102 
+              2.253c-.784.57-1.838-.196-1.539-1.118l1.18-3.64a1 
+              1 0 00-.364-1.118L2.5 
+              9.067c-.783-.57-.38-1.81.588-1.81h3.83a1 
+              1 0 00.951-.69l1.18-3.64z"
+            />
+          </svg>
+        )}
+
+        {[...Array(emptyStars)].map((_, i) => (
+          <svg
+            key={`empty-${i}`}
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="lightgray"
+            className="w-4 h-4"
+          >
+            <path d="M9.049 2.927c.3-.921 1.603-.921 
+            1.902 0l1.18 3.64a1 1 0 00.95.69h3.831c.969 
+            0 1.371 1.24.588 1.81l-3.102 
+            2.253a1 1 0 00-.364 1.118l1.18 
+            3.64c.3.922-.755 1.688-1.54 
+            1.118l-3.102-2.253a1 1 0 
+            00-1.176 0l-3.102 
+            2.253c-.784.57-1.838-.196-1.539-1.118l1.18-3.64a1 
+            1 0 00-.364-1.118L2.5 
+            9.067c-.783-.57-.38-1.81.588-1.81h3.83a1 
+            1 0 00.951-.69l1.18-3.64z" />
+          </svg>
+        ))}
+      </div>
+    );
+  };
 
   return (
     <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -45,6 +127,14 @@ export default function ProductDetail({ params }) {
       <div className="flex flex-col">
         {/* Title */}
         <h1 className="text-2xl font-bold py-2">{product.title}</h1>
+
+        {/* ⭐ Rating & Reviews */}
+        <div className="flex items-center gap-2 mb-3">
+          {renderStars(product.rate || 0)}
+          <span className="text-sm text-gray-600">
+            {product.rate?.toFixed(1)} ({product.reviews} reviews)
+          </span>
+        </div>
 
         {/* Price & Discount */}
         <div className="flex items-center gap-2">
