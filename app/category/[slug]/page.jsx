@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useMemo, useEffect } from "react";
@@ -13,7 +12,7 @@ export default function CategoryPage({ params }) {
   // ✅ Find category
   const category = categories.find((c) => c.slug === slug);
 
-  // ✅ Match products by checking multiple possible keys
+  // ✅ Match products
   const categoryProducts = products.filter(
     (p) =>
       p.categorySlug === slug ||
@@ -50,30 +49,17 @@ export default function CategoryPage({ params }) {
 
   // ✅ Filtering logic
   const filteredProducts = useMemo(() => {
-    if (!categoryProducts.length) return []; // no products in this category
+    if (!categoryProducts.length) return [];
 
     return categoryProducts.filter((p) => {
-      const productPrice = Number(p.price) || 0;
-
-      // Brand filter
-      if (filters.brands.length > 0 && !filters.brands.includes(p.brand)) return false;
-
-      // Price filter (handles empty inputs gracefully)
-      if (filters.minPrice && productPrice < Number(filters.minPrice)) return false;
-      if (filters.maxPrice && productPrice > Number(filters.maxPrice)) return false;
-
-      // Delivery filter
+      const price = Number(p.price) || 0;
+      if (filters.brands.length && !filters.brands.includes(p.brand)) return false;
+      if (filters.minPrice && price < Number(filters.minPrice)) return false;
+      if (filters.maxPrice && price > Number(filters.maxPrice)) return false;
       if (filters.delivery && !p.freeDelivery) return false;
-
-      // Material filter
       if (filters.material && p.material !== filters.material) return false;
-
-      // Color filter
       if (filters.color && p.color !== filters.color) return false;
-
-      // Warranty filter
       if (filters.warranty && p.warranty !== filters.warranty) return false;
-
       return true;
     });
   }, [categoryProducts, filters]);
@@ -83,25 +69,31 @@ export default function CategoryPage({ params }) {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-6 flex gap-6">
-      {/* Sidebar */}
-      <FilterSidebar onFilterChange={setFilters} initialCategory={slug} />
+    <div className="max-w-7xl mx-auto px-4 py-6">
+      {/* Header / Page Title */}
+      <h1 className="text-2xl font-bold mb-6">{category.name}</h1>
 
-      {/* Product List */}
-      <div className="flex-1">
-        <h1 className="text-2xl font-bold mb-6">{category.name}</h1>
+      {/* Sidebar + Products */}
+      <div className="flex flex-col md:flex-row gap-6">
+        {/* Sidebar */}
+        <div className="w-full md:w-72">
+          <FilterSidebar onFilterChange={setFilters} initialCategory={slug} />
+        </div>
 
-        {filteredProducts.length === 0 ? (
-          <h2 className="text-center py-10">
-            No products match your filters in "{category.name}"
-          </h2>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {filteredProducts.map((product) => (
-              <ProductCard key={product.id} p={product} />
-            ))}
-          </div>
-        )}
+        {/* Product List */}
+        <div className="flex-1">
+          {filteredProducts.length === 0 ? (
+            <h2 className="text-center py-10">
+              No products match your filters in "{category.name}"
+            </h2>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              {filteredProducts.map((product) => (
+                <ProductCard key={product.id} p={product} />
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

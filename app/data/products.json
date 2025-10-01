@@ -7,6 +7,10 @@
     "discount": "38%",
     "category": "3D Printers",
     "slugCategory": "3d-printers",
+    "brands": "Philips",
+    "colors": "Black, White, Red",
+    "rate": 4.5,
+    "reviews": 120,
     "image": "https://img.drz.lazcdn.com/static/pk/p/b30510f9721d8f28a8cd62ed550cb662.png_720x720q80.png_.webp"
   },
   {
@@ -17,6 +21,8 @@
     "discount": "38%",
     "category": "3D Printers",
     "slugCategory": "3d-printers",
+    "rate": 4.0,
+    "reviews": 80,
     "image": "https://img.drz.lazcdn.com/static/pk/p/7d96a136a24aeddd0fd9f22d6dc25c5b.jpg_200x200q75.avif"
   },
   {
@@ -27,6 +33,8 @@
     "discount": "60%",
     "category": "Pasta, Noodle & Pizza Tools",
     "slugCategory": "pasta-noodle-and-pizza-tools",
+    "rate": 4.0,
+    "reviews": 45,  
     "image": "https://img.drz.lazcdn.com/static/pk/p/368d2b230f4c6b843d4957477974e6ba.jpg_720x720q80.jpg_.webp"
   },
   {
@@ -37,6 +45,8 @@
     "discount": "10%",
     "category": "Pasta, Noodle & Pizza Tools",
     "slugCategory": "pasta-noodle-and-pizza-tools",
+    "rate": 4.0,
+    "reviews": 30,
     "image": "https://img.drz.lazcdn.com/static/pk/p/b761960fd29a62d8e869ea8b2d2ab391.jpg_720x720q80.jpg_.webp"
   },
   {
@@ -47,6 +57,8 @@
     "discount": "37%",
     "category": "Pasta, Noodle & Pizza Tools",
     "slugCategory": "pasta-noodle-and-pizza-tools",
+    "rate": 4.0,
+    "reviews": 25,
     "image": "https://img.drz.lazcdn.com/static/pk/p/d2fbbfe5bf62775a20fc02ec00dca8f0.jpg_720x720q80.jpg_.webp"
   },
   {
@@ -57,6 +69,8 @@
     "discount": "22%",
     "category": "Pasta, Noodle & Pizza Tools",
     "slugCategory": "pasta-noodle-and-pizza-tools",
+    "rate": 4.0,
+    "reviews": 15,
     "image": "https://img.drz.lazcdn.com/static/pk/p/df7eae036a5aefa6d82d44c3e346fae0.jpg_720x720q80.jpg_.webp"
   },
   {
@@ -67,6 +81,8 @@
     "discount": "9%",
     "category": "SIM Tools",
     "slugCategory": "sim-tools",
+    "rate": 4.0,
+    "reviews": 15,
     "image": "https://img.drz.lazcdn.com/static/pk/p/a30ef52a74f0c96b24530e6ca6a26978.jpg_720x720q80.jpg_.webp"
   },
   {
@@ -77,6 +93,8 @@
     "discount": "40%",
     "category": "SIM Tools",
     "slugCategory": "sim-tools",
+    "rate": 4.0,
+    "reviews": 10,
     "image": "https://img.drz.lazcdn.com/static/pk/p/f2a26cee636d3342842d7e1141e1d877.jpg_720x720q80.jpg_.webp"
   },
   {
@@ -87,6 +105,8 @@
     "discount": "25%",
     "category": "SIM Tools",
     "slugCategory": "sim-tools",
+    "rate": 4.0,
+    "reviews": 5,
     "image": "https://img.drz.lazcdn.com/static/pk/p/7a1633882fae9808c79b412e9f5f0a37.jpg_720x720q80.jpg_.webp"
   },
   {
@@ -97,6 +117,8 @@
     "discount": "40%",
     "category": "Fashion",
     "slugCategory": "fashion",
+    "rate": 4.5,
+    "reviews": 150,
     "image": "/images/flash/sneakers.jpg"
   }
 ]
