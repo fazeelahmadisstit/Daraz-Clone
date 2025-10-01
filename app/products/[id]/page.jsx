@@ -4,12 +4,11 @@ import { use } from "react";
 import products from "@/app/data/products.json";
 import { useRouter } from "next/navigation";
 import { useCart } from "@/app/Context/CartContext";
+import BuyNowButton from "@/app/components/BuyNowButton";
 
 export default function ProductDetail({ params }) {
   const router = useRouter();
   const { addToCart } = useCart();
-
-  // ✅ unwrap params promise correctly
   const { id } = use(params);
 
   const product = products.find((p) => String(p.id) === String(id));
@@ -32,51 +31,38 @@ export default function ProductDetail({ params }) {
 
   const [selectedColor, setSelectedColor] = React.useState(colors[0] || null);
 
-  // ⭐ Function to render stars
-  const renderStars = (rating) => {
-    const fullStars = Math.floor(rating);
-    const halfStar = rating % 1 >= 0.5;
-    const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+  // ✅ Rating & Review state
+  const [rating, setRating] = React.useState(product.rating || 4); // default rating
+  const [reviews, setReviews] = React.useState([
+    { user: "Ali", text: "Great product!", stars: 5 },
+    { user: "Sara", text: "Good quality for the price.", stars: 4 },
+  ]);
+  const [newReview, setNewReview] = React.useState("");
+  const [newStars, setNewStars] = React.useState(5);
 
+  const handleReviewSubmit = (e) => {
+    e.preventDefault();
+    if (!newReview.trim()) return;
+    setReviews([...reviews, { user: "Guest", text: newReview, stars: newStars }]);
+    setNewReview("");
+    setNewStars(5);
+  };
+
+  // ✅ Render stars helper
+  const renderStars = (count) => {
     return (
-      <div className="flex items-center">
-        {[...Array(fullStars)].map((_, i) => (
+      <div className="flex gap-1">
+        {[...Array(5)].map((_, i) => (
           <svg
-            key={`full-${i}`}
-            xmlns="http://www.w3.org/2000/svg"
+            key={i}
+            className={`w-5 h-5 ${
+              i < count ? "text-yellow-400" : "text-gray-300"
+            }`}
+            fill="currentColor"
             viewBox="0 0 20 20"
-            fill="gold"
-            className="w-4 h-4"
           >
-            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.18 3.64a1 
-            1 0 00.95.69h3.831c.969 0 1.371 
-            1.24.588 1.81l-3.102 2.253a1 1 
-            0 00-.364 1.118l1.18 3.64c.3.922-.755 
-            1.688-1.54 1.118l-3.102-2.253a1 
-            1 0 00-1.176 0l-3.102 
-            2.253c-.784.57-1.838-.196-1.539-1.118l1.18-3.64a1 
-            1 0 00-.364-1.118L2.5 
-            9.067c-.783-.57-.38-1.81.588-1.81h3.83a1 
-            1 0 00.951-.69l1.18-3.64z" />
-          </svg>
-        ))}
-
-        {halfStar && (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            className="w-4 h-4"
-          >
-            <defs>
-              <linearGradient id="half">
-                <stop offset="50%" stopColor="gold" />
-                <stop offset="50%" stopColor="lightgray" />
-              </linearGradient>
-            </defs>
-            <path
-              fill="url(#half)"
-              d="M9.049 2.927c.3-.921 1.603-.921 1.902 
-              0l1.18 3.64a1 1 0 00.95.69h3.831c.969 
+            <path d="M9.049 2.927c.3-.921 1.603-.921 
+              1.902 0l1.18 3.64a1 1 0 00.95.69h3.831c.969 
               0 1.371 1.24.588 1.81l-3.102 
               2.253a1 1 0 00-.364 1.118l1.18 
               3.64c.3.922-.755 1.688-1.54 
@@ -85,30 +71,7 @@ export default function ProductDetail({ params }) {
               2.253c-.784.57-1.838-.196-1.539-1.118l1.18-3.64a1 
               1 0 00-.364-1.118L2.5 
               9.067c-.783-.57-.38-1.81.588-1.81h3.83a1 
-              1 0 00.951-.69l1.18-3.64z"
-            />
-          </svg>
-        )}
-
-        {[...Array(emptyStars)].map((_, i) => (
-          <svg
-            key={`empty-${i}`}
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="lightgray"
-            className="w-4 h-4"
-          >
-            <path d="M9.049 2.927c.3-.921 1.603-.921 
-            1.902 0l1.18 3.64a1 1 0 00.95.69h3.831c.969 
-            0 1.371 1.24.588 1.81l-3.102 
-            2.253a1 1 0 00-.364 1.118l1.18 
-            3.64c.3.922-.755 1.688-1.54 
-            1.118l-3.102-2.253a1 1 0 
-            00-1.176 0l-3.102 
-            2.253c-.784.57-1.838-.196-1.539-1.118l1.18-3.64a1 
-            1 0 00-.364-1.118L2.5 
-            9.067c-.783-.57-.38-1.81.588-1.81h3.83a1 
-            1 0 00.951-.69l1.18-3.64z" />
+              1 0 00.951-.69l1.18-3.64z" />
           </svg>
         ))}
       </div>
@@ -128,15 +91,15 @@ export default function ProductDetail({ params }) {
         {/* Title */}
         <h1 className="text-2xl font-bold py-2">{product.title}</h1>
 
-        {/* ⭐ Rating & Reviews */}
-        <div className="flex items-center gap-2 mb-3">
-          {renderStars(product.rate || 0)}
+        {/* ⭐ Rating */}
+        <div className="flex items-center gap-2 mb-2">
+          {renderStars(rating)}
           <span className="text-sm text-gray-600">
-            {product.rate?.toFixed(1)} ({product.reviews} reviews)
+            ({reviews.length} reviews)
           </span>
         </div>
 
-        {/* Price & Discount */}
+        {/* Price */}
         <div className="flex items-center gap-2">
           <p className="text-xl font-bold mb-4 text-orange-500 py-2">
             Rs. {product.price?.toLocaleString()}
@@ -153,7 +116,7 @@ export default function ProductDetail({ params }) {
           )}
         </div>
 
-        {/* ✅ Selectable Color Swatches */}
+        {/* Colors */}
         {colors.length > 0 && (
           <div className="mt-4">
             <p className="text-sm font-semibold mb-2">Available Colors:</p>
@@ -172,7 +135,6 @@ export default function ProductDetail({ params }) {
                 ></button>
               ))}
             </div>
-
             {selectedColor && (
               <p className="text-xs mt-2">
                 Selected Color:{" "}
@@ -184,9 +146,7 @@ export default function ProductDetail({ params }) {
 
         {/* Buttons */}
         <div className="mt-6 flex gap-4">
-          <button className="bg-red-500 text-white px-6 py-2 rounded hover:bg-red-600">
-            Buy it Now
-          </button>
+          <BuyNowButton product={product} selectedColor={selectedColor} />
           <button
             className="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600"
             onClick={() => handleAddToCart(product)}
@@ -194,6 +154,53 @@ export default function ProductDetail({ params }) {
             Add to Cart
           </button>
         </div>
+      </div>
+
+      {/* Reviews Section */}
+      <div className="col-span-2 mt-10">
+        <h2 className="text-xl font-bold mb-4">Customer Reviews</h2>
+        <div className="space-y-4">
+          {reviews.map((r, i) => (
+            <div key={i} className="border p-3 rounded-lg">
+              <div className="flex items-center gap-2">
+                <span className="font-semibold">{r.user}</span>
+                {renderStars(r.stars)}
+              </div>
+              <p className="text-sm text-gray-700 mt-1">{r.text}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Add Review Form */}
+        <form onSubmit={handleReviewSubmit} className="mt-6 space-y-3">
+          <textarea
+            className="w-full border p-2 rounded"
+            rows="3"
+            placeholder="Write your review..."
+            value={newReview}
+            onChange={(e) => setNewReview(e.target.value)}
+          ></textarea>
+          <div className="flex items-center gap-2">
+            <label className="text-sm">Rating:</label>
+            <select
+              className="border p-1 rounded"
+              value={newStars}
+              onChange={(e) => setNewStars(Number(e.target.value))}
+            >
+              {[5, 4, 3, 2, 1].map((val) => (
+                <option key={val} value={val}>
+                  {val} Star{val > 1 && "s"}
+                </option>
+              ))}
+            </select>
+          </div>
+          <button
+            type="submit"
+            className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+          >
+            Submit Review
+          </button>
+        </form>
       </div>
     </div>
   );
